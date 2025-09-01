@@ -1,4 +1,4 @@
-package io.arnab.spring_jpa_poc;
+package io.arnab.spring_jpa_poc.embedded;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
