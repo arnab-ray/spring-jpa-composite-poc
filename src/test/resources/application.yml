@@ -20,7 +20,7 @@ spring:
       hibernate.cache.use_second_level_cache: false
       hibernate.cache.use_query_cache: false
       hibernate.generate_statistics: true
-      javax.persistence.query.timeout: 5000
+      jakarta.persistence.query.timeout: 5000
       org.hibernate.envers.audit_table_suffix: _history
       hibernate.jdbc.time_zone: Asia/Kolkata
 

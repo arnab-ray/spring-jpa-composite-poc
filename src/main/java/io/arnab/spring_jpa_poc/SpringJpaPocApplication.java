@@ -15,7 +15,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 public class SpringJpaPocApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringJpaPocApplication.class, args);
+
+        SpringApplication.run(SpringJpaPocApplication.class, args);
 	}
 
 }

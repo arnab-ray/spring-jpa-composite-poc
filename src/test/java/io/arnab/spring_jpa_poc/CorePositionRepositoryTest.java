@@ -69,6 +69,33 @@ public class CorePositionRepositoryTest {
     }
 
     @Test
+    void testFindByPartial() {
+        final List<CorePosition> corePositions = List.of(
+                CorePosition.builder()
+                        .corePositionId(new CorePositionId("test-ucc", "test-symbol-1", StocksProduct.CNC, StockExchange.NSE, 1))
+                        .build(),
+                CorePosition.builder()
+                        .corePositionId(new CorePositionId("test-ucc", "test-symbol-2", StocksProduct.CNC, StockExchange.NSE, 1))
+                        .build(),
+                CorePosition.builder()
+                        .corePositionId(new CorePositionId("test-ucc-2", "test-symbol-2", StocksProduct.CNC, StockExchange.BSE, 1))
+                        .build()
+        );
+
+
+        for (CorePosition corePosition : corePositions) {
+            entityManager.persist(corePosition);
+            entityManager.flush();
+        }
+        entityManager.clear(); // Clear the persistence context to avoid caching issues
+
+        var response = corePositionRepository.findByCorePositionIdUccAndCorePositionIdSymbolAndCorePositionIdProduct("test-ucc", "test-symbol-1", StocksProduct.CNC);
+
+        assertThat(response).isPresent();
+        assertThat(response.get()).usingRecursiveComparison().isEqualTo(corePositions.getFirst());
+    }
+
+    @Test
     void testFindInCustomQuery() {
         final List<CorePosition2> corePositions2 = List.of(
                 CorePosition2.builder()
