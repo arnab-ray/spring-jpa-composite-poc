@@ -7,8 +7,6 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,23 +14,23 @@ import java.util.List;
 
 //@Component
 //@Repository
-public class CorePositionRepositoryCustomImpl implements CorePositionRepositoryCustom {
+public class PositionRepositoryCustomImpl implements PositionRepositoryCustom {
     @PersistenceContext
     private EntityManager entityManager;
 
     @Override
-    public List<CorePosition2> findAllById(List<CorePositionId2> ids) {
+    public List<Position2> findAllById(List<PositionId2> ids) {
         if (ids == null || ids.isEmpty()) {
             return Collections.emptyList();
         }
 
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-        CriteriaQuery<CorePosition2> cq = cb.createQuery(CorePosition2.class);
-        Root<CorePosition2> root = cq.from(CorePosition2.class);
+        CriteriaQuery<Position2> cq = cb.createQuery(Position2.class);
+        Root<Position2> root = cq.from(Position2.class);
 
         List<Predicate> predicates = new ArrayList<>();
 
-        for (CorePositionId2 id : ids) {
+        for (PositionId2 id : ids) {
             predicates.add(cb.and(
                     cb.equal(root.get("ucc"), id.getUcc()),
                     cb.equal(root.get("symbol"), id.getSymbol()),
@@ -44,7 +42,7 @@ public class CorePositionRepositoryCustomImpl implements CorePositionRepositoryC
 
         cq.where(cb.or(predicates.toArray(new Predicate[0])));
 
-        TypedQuery<CorePosition2> query = entityManager.createQuery(cq);
+        TypedQuery<Position2> query = entityManager.createQuery(cq);
         return query.getResultList();
     }
 }
