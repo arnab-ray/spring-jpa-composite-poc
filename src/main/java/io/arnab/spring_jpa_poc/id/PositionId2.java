@@ -1,7 +1,7 @@
 package io.arnab.spring_jpa_poc.id;
 
-import com.groww.stocks.order.sdk.common.enums.StockExchange;
-import com.groww.stocks.order.sdk.common.enums.StocksProduct;
+import io.arnab.spring_jpa_poc.embedded.StockExchange;
+import io.arnab.spring_jpa_poc.embedded.StocksProduct;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import lombok.*;

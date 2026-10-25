@@ -1,7 +1,6 @@
 package io.arnab.spring_jpa_poc.embedded;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.groww.stocks.order.sdk.common.enums.StockSegment;
 import io.arnab.spring_jpa_poc.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;

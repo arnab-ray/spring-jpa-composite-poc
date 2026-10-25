@@ -1,10 +1,10 @@
 package io.arnab.spring_jpa_poc.id;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.groww.stocks.order.sdk.common.enums.StockExchange;
-import com.groww.stocks.order.sdk.common.enums.StockSegment;
-import com.groww.stocks.order.sdk.common.enums.StocksProduct;
 import io.arnab.spring_jpa_poc.BaseEntity;
+import io.arnab.spring_jpa_poc.embedded.StockExchange;
+import io.arnab.spring_jpa_poc.embedded.StockSegment;
+import io.arnab.spring_jpa_poc.embedded.StocksProduct;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.DynamicUpdate;
